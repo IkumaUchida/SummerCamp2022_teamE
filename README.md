@@ -25,7 +25,7 @@ cd SummerCamp2022_teamE
 make docker
 ```
 このdocker imageの作成には通常5~10分かかります。コーヒーでも飲んで待っていて下さい。
-- *補足*
+- *補足*　\
 使用している環境によっては、`make docker`でエラーが発生しimageが作成出来ない場合があります。 
 その場合は、環境に合わせて[`Dockerfile`](https://github.com/IkumaUchida/SummerCamp2022_teamE/blob/main/Dockerfile)を書き換えて下さい。　\
 `cuda:11.3.0`や`ubuntu20.04`や`cu113`の数字の部分です。
