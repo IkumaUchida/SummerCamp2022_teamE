@@ -25,12 +25,13 @@ make docker
 このdocker imageの作成には通常5~10分かかります。コーヒーでも飲んで待っていて下さい。
 - *補足*
 使用している環境によっては、`make docker`でエラーが発生しimageが作成出来ない場合があります。 
-その場合は、環境に合わせて[`Dockerfile`](https://github.com/IkumaUchida/SummerCamp2022_teamE/blob/main/Dockerfile)を書き換えて下さい
+その場合は、環境に合わせて[`Dockerfile`](https://github.com/IkumaUchida/SummerCamp2022_teamE/blob/main/Dockerfile)を書き換えて下さい。　\
+`cuda:11.3.0`や`ubuntu20.04`や`cu113`の数字の部分です。
 
 例 : OSがUbunts20.04でcudaのバージョンが11.3.０の場合
 
 ```dockerfile
-FROM  nvidia/cuda:11.4.0-cudnn8-devel-ubuntu20.04　＃＃１行目
+FROM  nvidia/cuda:11.3.0-cudnn8-devel-ubuntu20.04　＃＃１行目
 
 ~~~
 
@@ -38,6 +39,13 @@ FROM  nvidia/cuda:11.4.0-cudnn8-devel-ubuntu20.04　＃＃１行目
 RUN pip3 install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.1+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html #40行目
 
 ```
+
+### 2. Docker Containerの起動 & アタッチ
+```bash
+make docker-run
+cd workspace/ #コンテナ内のターミナルで
+```
+これによりDockerコンテナ上で作業が可能となる。
 
  
 
