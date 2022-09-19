@@ -14,6 +14,11 @@ docker-run:
 	--shm-size=8G \
 	-it \
 	-v $(PWD):/workspace \
-	summer:latest
+	summer_camp:latest
 
 	docker attach summer_camp
+
+
+.PHONY: docker-rm
+docker-rm:
+	docker rm summer_camp
