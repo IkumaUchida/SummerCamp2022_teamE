@@ -2,6 +2,7 @@ log/*
 x_ignore/*
 output/*
 data/*
+Yolov5_StrongSORT_OSNet/*
 
 
 # Mac OS-specific storage files
