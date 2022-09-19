@@ -7,7 +7,9 @@
 - (Optional) Poetry
 
 Dockerの使い方については以下が参考になりました。もし時間があれば見てみて下さい。
-- 
+- [Docker日本語ドキュメント](https://docs.docker.jp/)
+- 【図解】Dockerの全体像を理解する [[-前編-](https://qiita.com/etaroid/items/b1024c7d200a75b992fc)、[-中編-](https://qiita.com/etaroid/items/88ec3a0e2d80d7cdf87a)、[-後編-](https://qiita.com/etaroid/items/40106f13d47bfcbc2572)]
+
 
 ## Setup
 ローカル環境にて、以下のスクリプトを実行して下さい。
