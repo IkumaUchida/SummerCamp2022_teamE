@@ -9,7 +9,7 @@
 （規模的に不要ではありますが）合宿なので練習として，以下のルールにしたがって開発してみてください．
 
 開発はissueベースで行います．
-実装事項ができた際には，issueを立てる→issue IDでブランチを切る→実装後，githubへpushする→github上でmasterブランチへのPull Requestを作成する．
+実装事項ができた際には，issueを立てる→issue IDでブランチを切る→実装後，githubへpushする→github上でdevelopブランチへのPull Requestを作成する．
 機能追加は`feature/{タスク名}_{issueのID}`，修正は`fix/{タスク名}_{issueのID}`ブランチを切ってください．
 例：
 ```
