@@ -42,7 +42,7 @@ RUN pip3 install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.
 
 ```
 
-### . Docker Containerの起動 & アタッチ
+### 3. Docker Containerの起動 & アタッチ
 ```bash
 make docker-run
 cd workspace/ #コンテナ内のターミナルで
