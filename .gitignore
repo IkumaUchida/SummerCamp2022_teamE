@@ -2,6 +2,8 @@ log/*
 x_ignore/*
 output/*
 data/*
+Yolov5_StrongSORT_OSNet/yolov5/*
+Yolov5_StrongSORT_OSNet/runs/*
 
 
 # Mac OS-specific storage files
