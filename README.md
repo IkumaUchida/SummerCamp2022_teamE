@@ -3,32 +3,7 @@
 画像研夏合宿E班の開発用リポジトリです．
 
 ## Setup
-データセットを[Stanford dogs dataset](http://vision.stanford.edu/aditya86/ImageNetDogs/)からダウンロードし，images以下に配置．
-
-```
-# 依存パッケージのインストール
-$ pip install -r requirements.txt
-```
-
-データセットは以下のように配置
-```
-SummerComp2021F
-|- datasets
-| |- Annotation
-| |- Binary_IS
-| |- rgb
-```
-以下コマンドでトリミングとマスク統合
-```
-$ python scripts/convert_dataset.py
-```
-
-
-学習は以下コマンドで実行
-```
-# 学習実行
-$ python networks/run_training.py
-```
+準備中
 
 ## 開発規約
 （規模的に不要ではありますが）合宿なので練習として，以下のルールにしたがって開発してみてください．
