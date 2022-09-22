@@ -70,3 +70,72 @@ $ pip install "pysen[lint]"
 $ pysen run lint
 $ pysen run format
 ```
+
+pysen run lintとpysen run formatのフォーマットテストをクリアすると、以下のような出力が得られます。
+
+`$ pysen run lint`
+
+```bash
+root@0600bb121552:/workspace# pysen run lint
+Running commands concurrently...
+... concurrent execution done
+Running: black
+Checking 0 files
+Running: flake8
+Checking 0 files
+Running: isort
+Checking 0 files
+
+ ** execution summary **
+isort .......... OK (0.14 sec)
+black .......... OK (0.14 sec)
+flake8 .......... OK (0.15 sec)
+```
+
+
+`$ pysen run format`
+
+```bash
+root@0600bb121552:/workspace# pysen run format
+Running commands
+Running: isort
+Checking 0 files
+Running: black
+Checking 0 files
+
+ ** execution summary **
+isort .......... OK (0.14 sec)
+black .......... OK (0.11 sec)
+```
+
+例えば、pysenでエラーが出ると以下のようなメッセージが出ます。
+
+```bash
+root@0600bb121552:/workspace# pysen run lint
+... concurrent execution done
+Running: black
+Checking 1 files
+--- /workspace/test_code.py     2022-09-19 16:14:10.482200 +0000
++++ /workspace/test_code.py     2022-09-22 07:17:44.042051 +0000
+@@ -1 +1 @@
+-print('Hi!')
++print("Hi!")
+would reformat /workspace/test_code.py
+Oh no! 💥 💔 💥
+1 file would be reformatted.
+Running: flake8
+Checking 1 files
+/workspace/test_code.py:1:13: W292 no newline at end of file
+Running: isort
+Checking 1 files
+
+ ** execution summary **
+isort .......... OK (1.74 sec)
+black .......... Failed (1.73 sec)
+flake8 .......... Failed (1.75 sec)
+
+lint finished with error(s)
+Errored:
+ - black
+ - flake8
+ ```
