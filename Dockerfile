@@ -2,6 +2,9 @@ FROM  nvidia/cuda:11.4.0-cudnn8-devel-ubuntu20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+# for windows env
+RUN rm -rf /var/lib/apt/lists/*
+
 RUN apt update \
     && apt install -y \
     wget \
