@@ -1,5 +1,4 @@
 log/*
-x_ignore/*
 output/*
 data/*
 Yolov5_StrongSORT_OSNet/yolov5/*
