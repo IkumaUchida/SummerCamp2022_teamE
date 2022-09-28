@@ -2,6 +2,9 @@ FROM  nvidia/cuda:11.4.0-cudnn8-devel-ubuntu20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+# For windows env
+RUN rm -rf /var/lib/apt/lists/*
+
 RUN apt update \
     && apt install -y \
     wget \
@@ -41,3 +44,6 @@ RUN pip3 install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio==0.10.
 
 RUN pip install --no-cache-dir -U pip setuptools wheel \
     && pip install --no-cache-dir -r /tmp/requirements.txt
+
+# For windows env
+WORKDIR /workspace
