@@ -1,6 +1,7 @@
 import os
 import sys
 import glob
+import shutil
 
 import cv2
 import numpy as np
@@ -61,24 +62,24 @@ def main():
     for path in image_paths:
         images.append(cv2.imread(path))
 
-    # calculate tree points
-    points_tree1 = calc_tree_points((340, 0), 50.0, 90.0, 8)
-    points_tree2 = calc_tree_points((340, 180), 50.0, 90.0, 8)
-    points_tree = np.concatenate([points_tree1, points_tree2])
-    # points: [[[start_x, start_y], [end_x, end_y]], [[start_x, start_y], [end_x, end_y]], ...]
+    for image_path, label_path in zip(image_paths, label_paths):
+        image = cv2.imread(image_path)
+        
+        # calculate tree points
+        points_tree1 = calc_tree_points((340, 0), 50.0, 90.0, 8)
+        points_tree2 = calc_tree_points((340, 180), 50.0, 90.0, 8)
+        points_tree = np.concatenate([points_tree1, points_tree2])
+        # points: [[[start_x, start_y], [end_x, end_y]], [[start_x, start_y], [end_x, end_y]], ...]
 
-    # draw tree
-    big_image = cv2.resize(images[0], dsize=None, fx=2.0, fy=2.0)
-    big_image = draw_lines(big_image, points_tree)
-    big_image = draw_bubbles(big_image)
-    image = cv2.resize(big_image, dsize=None, fx=0.5, fy=0.5)
+        # draw tree
+        big_image = cv2.resize(image, dsize=None, fx=2.0, fy=2.0)
+        big_image = draw_lines(big_image, points_tree)
+        big_image = draw_bubbles(big_image)
+        image_addedObject = cv2.resize(big_image, dsize=None, fx=0.5, fy=0.5)
 
-    # write image
-    #cv2.imwrite(image_paths[0].replace(".jpg", "_tree.jpg"), image)
-    
-    # For sample image
-    cv2.imwrite("/workspace/scripts/data_augmentation/sample/original.jpg", images[0])
-    cv2.imwrite("/workspace/scripts/data_augmentation/sample/add_object.jpg", image)
+        # write training image
+        cv2.imwrite(image_path.replace(".jpg", "_object.jpg"), image_addedObject)
+        shutil.copyfile(label_path, label_path.replace(".txt", "_object.txt"))
 
 
 if __name__ == "__main__":
