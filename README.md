@@ -33,7 +33,11 @@ cd workspace/ #コンテナ内のターミナルで
 ```
 これによりDockerコンテナ上で作業が可能となる。
 
- 
+### 4. jupyter Notebookを起動
+```bash
+jupyter notebook --port=8888 --ip=0.0.0.0 --allow-root --NotebookApp.token=''
+```
+上をコンテナ内で実行後、ブラウザから[ここ](http://localhost:10000/)にアクセスする。
 
 ## 開発規約
 （規模的に不要ではありますが）合宿なので練習として，以下のルールにしたがって開発してみてください．

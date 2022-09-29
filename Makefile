@@ -14,6 +14,7 @@ docker-run:
 	--shm-size=8G \
 	-it \
 	-v $(PWD):/workspace \
+	-p 10000:8888 \
 	summer_camp:latest
 
 	docker attach summer_camp
