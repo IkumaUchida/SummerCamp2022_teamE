@@ -57,14 +57,14 @@ def draw_bubbles(image):
 
 def main():
     # load images
-    image_paths, label_paths = read_files()
-    images = []
-    for path in image_paths:
-        images.append(cv2.imread(path))
+    image_paths_train, label_paths_train = read_files("data/yolov5-class0/train")
+    image_paths_valid, label_paths_valid = read_files("data/yolov5-class0/valid")
+    image_paths = image_paths_train + image_paths_valid
+    label_paths = label_paths_train + label_paths_valid
 
     for image_path, label_path in zip(image_paths, label_paths):
         image = cv2.imread(image_path)
-        
+
         # calculate tree points
         points_tree1 = calc_tree_points((340, 0), 50.0, 90.0, 8)
         points_tree2 = calc_tree_points((340, 180), 50.0, 90.0, 8)
