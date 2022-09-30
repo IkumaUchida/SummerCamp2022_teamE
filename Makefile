@@ -14,7 +14,7 @@ docker-run:
 	--shm-size=8G \
 	-it \
 	-v $(PWD):/workspace \
-	summer_camp:latest
+	summer_camp:latest bash
 
 	docker attach summer_camp
 
@@ -22,3 +22,18 @@ docker-run:
 .PHONY: docker-rm
 docker-rm:
 	docker rm summer_camp
+
+.PHONY: docker-run-conda
+docker-run-conda:
+
+	docker run \
+	--name summer_camp_cuconda \
+	--gpus all \
+	-d \
+	-u $(id -u):$(id -g) \
+	--shm-size=8G \
+	-it \
+	-v $(PWD):/workspace \
+	jptman/cuconda:v1 bash
+
+	docker attach summer_camp_cuconda
